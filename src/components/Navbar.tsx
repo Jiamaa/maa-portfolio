@@ -35,8 +35,9 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#home" className="text-xl text-[#EC8F8D] font-bold tracking-tighter hover:opacity-70 transition-opacity">
-          Maa's Portfolio.
+        <a href="#home" className="text-xl font-bold inline-flex tracking-tighter hover:opacity-70 transition-opacity gap-1">
+          <p className='text-[#EC8F8D]'>Maa's</p>
+          <p className='text-gray-500'>Portfolio.</p>
         </a>
 
         {/* Desktop Menu */}

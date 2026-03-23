@@ -34,14 +34,13 @@ export default function App() {
 
       <footer className="py-12 px-6 border-t border-zinc-100 bg-zinc-50">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-sm font-bold tracking-tighter">PORTO.</p>
-          <p className="text-sm text-zinc-400">
-            © {new Date().getFullYear()} Personal Portfolio. Built with React & Tailwind.
+          <p className="text-sm font-bold tracking-tighter gap-1 inline-flex">
+            <p className='text-[#EC8F8D]'>Maa's</p>
+            <p className='text-gray-500'>Portfolio.</p>
           </p>
-          <div className="flex items-center space-x-6 text-sm font-medium text-zinc-400">
-            <a href="#" className="hover:text-black transition-colors">Privacy</a>
-            <a href="#" className="hover:text-black transition-colors">Terms</a>
-          </div>
+          <p className="text-sm text-zinc-400">
+            © {new Date().getFullYear()} Rahmawati.
+          </p>
         </div>
       </footer>
     </div>

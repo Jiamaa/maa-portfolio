@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Calendar, Code, Layers, Target, Trophy } from 'lucide-react';
+import { ExternalLink, Calendar, Code, Layers, Target, Trophy, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project, ProjectCategory } from '../types';
 import { cn } from '../utils';
@@ -17,8 +17,25 @@ const CATEGORIES: (ProjectCategory | 'All')[] = [
 
 export default function ProjectSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [contentImageIndex, setContentImageIndex] = useState(0);
 
   const categories: ProjectCategory[] = ['Computer Vision', 'Software Development', 'IoT', 'LLM'];
+
+  const handlePrevImage = () => {
+    if (selectedProject?.contentImageUrls) {
+      setContentImageIndex((prev) => 
+        prev === 0 ? selectedProject.contentImageUrls!.length - 1 : prev - 1
+      );
+    }
+  };
+
+  const handleNextImage = () => {
+    if (selectedProject?.contentImageUrls) {
+      setContentImageIndex((prev) => 
+        prev === selectedProject.contentImageUrls!.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
 
   return (
     <section id="projects" className="py-32 px-6 bg-zinc-50">
@@ -28,7 +45,7 @@ export default function ProjectSection() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-20"
         >
-          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-600 mb-4">Portfolio</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-[#EC8F8D] mb-4">Portfolio</h2>
           <h3 className="text-5xl md:text-7xl font-bold tracking-tighter">Selected Works.</h3>
         </motion.div>
 
@@ -58,7 +75,10 @@ export default function ProjectSection() {
                     >
                       <div 
                         className="w-full md:w-1/2 aspect-video rounded-[40px] overflow-hidden shadow-2xl cursor-pointer group"
-                        onClick={() => setSelectedProject(project)}
+                        onClick={() => {
+                          setSelectedProject(project);
+                          setContentImageIndex(0);
+                        }}
                       >
                         <img
                           src={project.imageUrl}
@@ -70,7 +90,7 @@ export default function ProjectSection() {
                       
                       <div className="w-full md:w-1/2 space-y-6">
                         <div className="flex items-center space-x-4">
-                          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">
+                          <span className="text-xs font-bold uppercase tracking-widest text-[#EC8F8D]">
                             {project.year}
                           </span>
                         </div>
@@ -89,8 +109,11 @@ export default function ProjectSection() {
                           ))}
                         </div>
                         <button
-                          onClick={() => setSelectedProject(project)}
-                          className="inline-flex items-center space-x-2 text-emerald-600 font-bold uppercase tracking-widest text-sm hover:translate-x-2 transition-transform"
+                          onClick={() => {
+                            setSelectedProject(project);
+                            setContentImageIndex(0);
+                          }}
+                          className="inline-flex items-center space-x-2 text-[#EC8F8D] font-bold uppercase tracking-widest text-sm hover:translate-x-2 transition-transform"
                         >
                           <span>View Details</span>
                           <ExternalLink size={16} />
@@ -150,14 +173,55 @@ export default function ProjectSection() {
                       </p>
                     </div>
 
-                    {selectedProject.contentImageUrl && (
-                      <div className="rounded-2xl overflow-hidden shadow-md border border-zinc-100">
-                        <img 
-                          src={selectedProject.contentImageUrl} 
-                          alt="Project Content" 
-                          className="w-full h-auto"
-                          referrerPolicy="no-referrer"
-                        />
+                    {selectedProject.contentImageUrls && selectedProject.contentImageUrls.length > 0 && (
+                      <div className="space-y-4">
+                        <div className="relative rounded-2xl overflow-hidden shadow-md border border-zinc-100 group">
+                          <AnimatePresence mode="wait">
+                            <motion.img 
+                              key={contentImageIndex}
+                              src={selectedProject.contentImageUrls[contentImageIndex]} 
+                              alt={`Project Content ${contentImageIndex + 1}`} 
+                              className="w-full h-auto"
+                              referrerPolicy="no-referrer"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                            />
+                          </AnimatePresence>
+
+                          {selectedProject.contentImageUrls.length > 1 && (
+                            <>
+                              <button
+                                onClick={handlePrevImage}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                              >
+                                <ChevronLeft size={20} />
+                              </button>
+                              <button
+                                onClick={handleNextImage}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                              >
+                                <ChevronRight size={20} />
+                              </button>
+                            </>
+                          )}
+                        </div>
+
+                        {selectedProject.contentImageUrls.length > 1 && (
+                          <div className="flex justify-center items-center gap-2">
+                            {selectedProject.contentImageUrls.map((_, idx) => (
+                              <button
+                                key={idx}
+                                onClick={() => setContentImageIndex(idx)}
+                                className={cn(
+                                  "w-2 h-2 rounded-full transition-all",
+                                  contentImageIndex === idx ? "bg-[#EC8F8D] w-8" : "bg-zinc-300 hover:bg-zinc-400"
+                                )}
+                              />
+                            ))}
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -189,7 +253,7 @@ export default function ProjectSection() {
 
                     <div className="space-y-8">
                       <div>
-                        <div className="flex items-center space-x-2 text-emerald-600 mb-4">
+                        <div className="flex items-center space-x-2 text-[#EC8F8D] mb-4">
                           <Target size={20} />
                           <h5 className="font-bold uppercase tracking-widest text-sm">Project Goals</h5>
                         </div>
@@ -197,14 +261,14 @@ export default function ProjectSection() {
                       </div>
 
                       <div>
-                        <div className="flex items-center space-x-2 text-emerald-600 mb-4">
+                        <div className="flex items-center space-x-2 text-[#EC8F8D] mb-4">
                           <Trophy size={20} />
                           <h5 className="font-bold uppercase tracking-widest text-sm">Key Achievements</h5>
                         </div>
                         <ul className="space-y-3">
                           {selectedProject.achievements.map((a, i) => (
                             <li key={i} className="flex items-start space-x-3 text-zinc-600">
-                              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#EC8F8D] shrink-0" />
                               <span>{a}</span>
                             </li>
                           ))}

@@ -17,7 +17,7 @@ export default function ResearchSection() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-20 text-center"
         >
-          <h2 className="text-sm font-bold uppercase tracking-widest text-indigo-600 mb-4">Academic</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-[#EC8F8D] mb-4">Academic</h2>
           <h3 className="text-5xl md:text-7xl font-bold tracking-tighter">Research & Publications.</h3>
         </motion.div>
 
@@ -27,7 +27,7 @@ export default function ResearchSection() {
               key={res.id}
               initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
-              className="group relative flex flex-col md:flex-row gap-8 p-8 rounded-3xl border border-zinc-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition-all cursor-pointer"
+              className="group relative flex flex-col md:flex-row gap-8 p-8 rounded-3xl border border-zinc-100 hover:border-[#EC8F8D]/30 hover:bg-[#EC8F8D]/10 transition-all cursor-pointer"
               onClick={() => setSelectedResearch(res)}
             >
               <div className="w-full md:w-48 aspect-square rounded-2xl overflow-hidden shrink-0 shadow-sm">
@@ -43,13 +43,13 @@ export default function ResearchSection() {
                   <Calendar size={14} />
                   <span className="text-xs font-medium">{res.year}</span>
                 </div>
-                <h4 className="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors">
+                <h4 className="text-2xl font-bold mb-4 group-hover:text-[#EC8F8D] transition-colors">
                   {res.title}
                 </h4>
                 <p className="text-zinc-600 line-clamp-2 mb-4 leading-relaxed">
                   {res.description}
                 </p>
-                <div className="flex items-center space-x-2 text-indigo-600 font-bold text-xs uppercase tracking-widest">
+                <div className="flex items-center space-x-2 text-[#EC8F8D] font-bold text-xs uppercase tracking-widest">
                   <span>View Details</span>
                   <ExternalLink size={14} />
                 </div>
@@ -86,7 +86,7 @@ export default function ResearchSection() {
               </div>
 
               <div className="p-12">
-                <div className="flex items-center space-x-4 text-indigo-600 mb-6">
+                <div className="flex items-center space-x-4 text-[#EC8F8D] mb-6">
                   <BookOpen size={24} />
                   <span className="text-sm font-bold uppercase tracking-widest">Research Detail</span>
                 </div>
@@ -107,14 +107,14 @@ export default function ResearchSection() {
                   </div>
 
                   <div>
-                    <div className="flex items-center space-x-2 text-indigo-600 mb-6">
+                    <div className="flex items-center space-x-2 text-[#EC8F8D] mb-6">
                       <Trophy size={20} />
                       <h5 className="font-bold uppercase tracking-widest text-sm">Key Findings & Achievements</h5>
                     </div>
                     <ul className="grid md:grid-cols-2 gap-4 mb-10">
                       {selectedResearch.achievements.map((a, i) => (
                         <li key={i} className="flex items-start space-x-3 p-4 rounded-2xl bg-zinc-50 border border-zinc-100 text-zinc-600">
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#EC8F8D] shrink-0" />
                           <span>{a}</span>
                         </li>
                       ))}
@@ -126,7 +126,7 @@ export default function ResearchSection() {
                           href={selectedResearch.paperUrl} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-3 px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200"
+                          className="inline-flex items-center space-x-3 px-8 py-4 bg-[#EC8F8D] text-white rounded-2xl font-bold hover:bg-[#EC8F8D]/80 transition-all shadow-lg shadow-[#EC8F8D]/20"
                         >
                           <BookOpen size={20} />
                           <span>Access Full Paper</span>

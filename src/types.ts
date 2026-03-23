@@ -11,7 +11,7 @@ export interface Project {
   achievements: string[];
   goals: string;
   imageUrl: string;
-  contentImageUrl?: string;
+  contentImageUrls?: string[];
   publicUrl?: string;
 }
 

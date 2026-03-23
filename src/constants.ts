@@ -3,94 +3,107 @@ import { Project, Research, Education, Skill } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Smart Medical Vending Machine',
-    category: 'Computer Vision',
-    year: '2024 - Now',
-    description: 'Developing real-time object detection model for general medicine products and Human Machine Interface (HMI). Integrated AI systems with PLC communication and IoT systems.',
-    imageUrl: 'https://picsum.photos/seed/vending/800/600',
-    contentImageUrl: 'https://picsum.photos/seed/vending-content/1200/800',
-    publicUrl: 'https://ais-pre-mtugdstxcbcw47djmcon7p-567343579580.run.app', // Example public link
-    languages: ['Python', 'JavaScript', 'C++'],
-    frameworks: ['YOLOv8', 'TensorRT', 'React', 'Next.js', 'Node.js', 'Express.js'],
-    goals: 'To create an automated medical product dispensing system with real-time product recognition and seamless IoT integration.',
-    achievements: [
-      'Embedded YOLOv8 on NVIDIA Jetson Orin Nano using TensorRT and GStreamer.',
-      'Developed full-stack web application and backend desktop application.',
-      'Innovation recognized by national media (CNN Indonesia, Kompas.com, Liputan6.com).',
-      'Successfully delivered a fully functional product for public utilization.'
-    ]
-  },
-  {
-    id: '2',
     title: 'Speed Bump Detection & Distance Estimation',
     category: 'Computer Vision',
-    year: '2023',
-    description: 'Integrated a distance estimation system into a speed bump detection model using stereo vision for autonomous vehicles.',
-    imageUrl: 'https://picsum.photos/seed/speedbump/800/600',
-    contentImageUrl: 'https://picsum.photos/seed/speedbump-content/1200/800',
+    year: '2023-2024',
+    description: 'Speed bump detection and distance estimation system using stereo vision for autonomous vehicles.',
+    imageUrl: '../cv/cv1-10.png',
+    contentImageUrls: ['../cv/cv1-6.png', '../cv/cv1-1.png', '../cv/cv1-2.png', '../cv/cv1-3.png', '../cv/cv1-4.png', '../cv/cv1-5.png', '../cv/cv1-7.png', '../cv/cv1-8.png', '../cv/cv1-9.png', '../cv/cv1-10.png', '../cv/cv1-11.png', '../cv/cv1-12.png', '../cv/cv1-13.png', '../cv/cv1-14.png', '../cv/cv1-15.png'],
     languages: ['Python'],
-    frameworks: ['YOLOv8', 'Mask R-CNN', 'Tensorflow', 'Pytorch', 'Darknet'],
+    frameworks: ['YOLOv8', 'YOLOv4 Tiny', 'YOLOv5', 'Mask R-CNN', 'Tensorflow', 'Pytorch', 'Darknet', 'ONNX Runtime', 'OpenCV', 'Deepstream', 'NVIDIA Jetson Nano', 'Intel RealSense D455',],
     goals: 'To enhance autonomous vehicle safety by accurately detecting speed bumps and estimating their distance.',
     achievements: [
       'Achieved 96% mAP with YOLOv4 Tiny and 92.5% mAP with YOLOv8.',
       'Maximum estimation distance of 20 meters using stereo vision concepts.',
       'Embedded the system into NVIDIA Jetson Nano.',
-      'Annotated 6000+ images using VGG Image Annotator (VIA).'
+    ]
+  },
+  {
+    id: '2',
+    title: 'General Medicine Verification System',
+    category: 'Computer Vision',
+    year: '2024 - 2026',
+    description: 'Developing real-time object detection model for general medicine products using YOLOv8, optimized with TensorRT and GStreamer for deployment on NVIDIA Jetson Orin Nano.',
+    imageUrl: '../cv/cv2-1.jpeg',
+    contentImageUrls: ['../cv/cv2-1.jpeg', '../cv/cv2-2.jpeg', '../cv/cv2-3.jpeg', '../cv/cv2-4.jpeg', '../cv/cv2-5.jpeg', '../cv/cv2-6.jpeg', '../cv/cv2-7.jpeg', '../cv/cv2-8.jpeg'],
+    publicUrl: '',
+    languages: ['Python'],
+    frameworks: ['YOLOv8', 'Python', 'TensorRT', 'Pytorch', 'GStreamer', 'ONNX', 'NVIDIA Jetson Orin Nano'],
+    goals: 'To create an automated real-time product verification system for general medicine products.',
+    achievements: [
+      'Embedded YOLOv8 on NVIDIA Jetson Orin Nano using TensorRT and GStreamer.',
+      'Achieved 95% mAP in real-time detection of general medicine products.',
+      'Achieve optimized inference speed of 30 FPS on NVIDIA Jetson Orin Nano.',
+    ]
+  },
+  {
+    id: '3',
+    title: 'Inventory Management Website - Smart Medical Vending Machine',
+    category: 'Software Development',
+    year: '2025-2026',
+    description: 'Full-stack web application for managing smart medical vending machines, featuring real-time inventory tracking, real-time video conferencing, and user management.',
+    imageUrl: '../sd/sd1-1.png',
+    contentImageUrls: ['../sd/sd1-1.png', '../sd/sd1-2.png', '../sd/sd1-3.png', '../sd/sd1-4.png', '../sd/sd1-5.png', '../sd/sd1-6.png', '../sd/sd1-7.png', '../sd/sd1-8.png'],
+    publicUrl: '',
+    languages: ['TypeScript', 'JavaScript'],
+    frameworks: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'PostgreSQL', 'REST API', 'WebRTC', 'WebSocket'],
+    goals: 'Build a robust management interface for vending machine operators.',
+    achievements: [
+      'Realtime inventory logging and monitoring system.',
+      'Smooth real-time video conferencing.',  
     ]
   },
   {
     id: '4',
-    title: 'Medical Vending HMI & Dashboard',
+    title: 'Human Machine Interface (HMI) - Smart Medical Vending Machine',
     category: 'Software Development',
-    year: '2024',
-    description: 'Full-stack web application for managing medical vending machines, featuring real-time inventory tracking and user management.',
-    imageUrl: 'https://picsum.photos/seed/dashboard/800/600',
-    contentImageUrl: 'https://picsum.photos/seed/dashboard-content/1200/800',
-    publicUrl: 'https://ais-pre-mtugdstxcbcw47djmcon7p-567343579580.run.app',
+    year: '2025-2026',
+    description: 'Developing backend and integrating with frontend desktop application for Human Machine Interface (HMI) of a smart medical vending machine using Electron.js, Node.js, and Express.js. Integrated real-time AI systems with PLC communication and IoT systems.',
+    imageUrl: '../sd/sd2-1.jpeg',
+    contentImageUrls: ['../sd/sd2-1.jpeg', '../sd/sd2-2.jpeg', '../sd/sd2-3.jpeg'],
+    publicUrl: '',
     languages: ['TypeScript', 'JavaScript'],
-    frameworks: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
-    goals: 'Build a robust management interface for vending machine operators.',
+    frameworks: ['Electron.js', 'Node.js', 'Express.js', 'PostgreSQL', 'REST API', 'WebSocket'],
+    goals: 'Build a robust HMI for vending machine users.',
     achievements: [
-      'Implemented real-time updates using WebSocket.',
-      'Designed a responsive HMI for various screen sizes.',
-      'Integrated with a secure REST API backend.'
+      'Innovation recognized by national media (CNN Indonesia, Kompas.com, Liputan6.com).',
+      'Successfully delivered a fully functional product for public utilization.'
     ]
   },
   {
     id: '5',
-    title: 'PLC-to-Cloud Bridge',
+    title: 'HMI App - PLC Communication',
     category: 'IoT',
-    year: '2024',
-    description: 'IoT system establishing communication between industrial PLCs and cloud servers for remote monitoring and control.',
-    imageUrl: 'https://picsum.photos/seed/iot/800/600',
-    contentImageUrl: 'https://picsum.photos/seed/iot-content/1200/800',
-    languages: ['Python', 'C++'],
-    frameworks: ['WebSocket', 'REST API', 'MQTT', 'Node.js'],
-    goals: 'Enable remote data acquisition from industrial hardware.',
+    year: '2026',
+    description: 'IoT system establishing communication between HMI app and industrial PLC.',
+    imageUrl: '../iot/iot1-2.jpeg',
+    contentImageUrls: ['../iot/iot1-1.jpeg', '../iot/iot1-2.jpeg', '../iot/iot1-3.mp4'],
+    languages: ['JavaScript'],
+    frameworks: ['REST API'],
+    goals: 'Controlling the PLC from the HMI app and receiving real-time sensor data for monitoring.',
     achievements: [
-      'Reduced latency in PLC-to-Server communication.',
-      'Implemented secure data transmission protocols.',
-      'Built a monitoring dashboard for real-time sensor data.'
+      'Innovation recognized by national media (CNN Indonesia, Kompas.com, Liputan6.com).',
+      'Successfully delivered a fully functional product for public utilization.'
     ]
   },
-  {
-    id: '6',
-    title: 'AI Medical Assistant Chatbot',
-    category: 'LLM',
-    year: '2024',
-    description: 'Experimental LLM-based assistant for providing information about general medicine products in the vending machine.',
-    imageUrl: 'https://picsum.photos/seed/llm/800/600',
-    contentImageUrl: 'https://picsum.photos/seed/llm-content/1200/800',
-    publicUrl: 'https://ais-pre-mtugdstxcbcw47djmcon7p-567343579580.run.app',
-    languages: ['Python'],
-    frameworks: ['LangChain', 'OpenAI API', 'FastAPI'],
-    goals: 'Enhance user experience by providing instant product information.',
-    achievements: [
-      'Integrated RAG for accurate product knowledge.',
-      'Optimized prompt engineering for medical context.',
-      'Deployed as a microservice integrated with the HMI.'
-    ]
-  }
+  // {
+  //   id: '6',
+  //   title: 'AI Medical Assistant Chatbot',
+  //   category: 'LLM',
+  //   year: '2024',
+  //   description: 'Experimental LLM-based assistant for providing information about general medicine products in the vending machine.',
+  //   imageUrl: 'https://picsum.photos/seed/llm/800/600',
+  //   contentImageUrls: ['https://picsum.photos/seed/llm-content/1200/800'],
+  //   publicUrl: 'https://ais-pre-mtugdstxcbcw47djmcon7p-567343579580.run.app',
+  //   languages: ['Python'],
+  //   frameworks: ['LangChain', 'OpenAI API', 'FastAPI'],
+  //   goals: 'Enhance user experience by providing instant product information.',
+  //   achievements: [
+  //     'Integrated RAG for accurate product knowledge.',
+  //     'Optimized prompt engineering for medical context.',
+  //     'Deployed as a microservice integrated with the HMI.'
+  //   ]
+  // }
 ];
 
 export const RESEARCH: Research[] = [
@@ -150,5 +163,7 @@ export const SKILLS: Skill[] = [
   { name: 'PostgreSQL', level: 80 },
   { name: 'WebSocket', level: 85 },
   { name: 'REST API', level: 90 },
+  { name: 'Git', level: 80 },
+  { name: 'CI/CD', level: 80 },
   { name: 'PLC Communication', level: 80 }
 ];
