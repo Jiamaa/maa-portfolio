@@ -15,6 +15,12 @@ const CATEGORIES: (ProjectCategory | 'All')[] = [
   'LLM',
 ];
 
+const getMostRecentYear = (yearLabel: string): number => {
+  const years = yearLabel.match(/\d{4}/g);
+  if (!years) return Number.NEGATIVE_INFINITY;
+  return Math.max(...years.map((year) => Number.parseInt(year, 10)));
+};
+
 export default function ProjectSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [contentImageIndex, setContentImageIndex] = useState(0);
@@ -51,7 +57,22 @@ export default function ProjectSection() {
 
         <div className="space-y-40">
           {categories.map((category) => {
-            const categoryProjects = PROJECTS.filter(p => p.category === category);
+            const categoryProjects = PROJECTS
+              .filter((p) => p.category === category)
+              .slice()
+              .sort((a, b) => {
+                const yearDiff = getMostRecentYear(b.year) - getMostRecentYear(a.year);
+                if (yearDiff !== 0) return yearDiff;
+
+                const idA = Number.parseInt(a.id, 10);
+                const idB = Number.parseInt(b.id, 10);
+
+                if (!Number.isNaN(idA) && !Number.isNaN(idB)) {
+                  return idB - idA;
+                }
+
+                return b.id.localeCompare(a.id, undefined, { numeric: true, sensitivity: 'base' });
+              });
             if (categoryProjects.length === 0) return null;
 
             return (
@@ -227,23 +248,23 @@ export default function ProjectSection() {
 
                     {selectedProject.publicUrl && (
                       <div className="space-y-6">
-                        <div className="flex items-center space-x-2 text-emerald-600">
+                        <div className="flex items-center space-x-2 text-[#EC8F8D]">
                           <ExternalLink size={20} />
                           <h5 className="font-bold uppercase tracking-widest text-sm">Live Demo / Embedded Link</h5>
                         </div>
-                        <div className="aspect-video w-full rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-50 relative group">
+                        {/* <div className="aspect-video w-full rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-50 relative group">
                           <iframe 
                             src={selectedProject.publicUrl} 
                             className="w-full h-full"
                             title="Project Demo"
                           />
                           <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors pointer-events-none" />
-                        </div>
+                        </div> */}
                         <a 
                           href={selectedProject.publicUrl} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-2 text-zinc-500 hover:text-emerald-600 transition-colors text-sm font-medium"
+                          className="inline-flex items-center space-x-2 text-zinc-500 hover:text-black transition-colors text-sm font-medium"
                         >
                           <span>Open in new tab</span>
                           <ExternalLink size={14} />

@@ -86,8 +86,41 @@ export const PROJECTS: Project[] = [
       'Successfully delivered a fully functional product for public utilization.'
     ]
   },
+  {
+    id: '6',
+    title: 'Maa Notes',
+    category: 'Software Development',
+    year: '2026',
+    description: 'Full-stack web application for note-taking and task management based on priority.',
+    imageUrl: '../sd/sd3-1.png',
+    contentImageUrls: ['../sd/sd3-1.png', '../sd/sd3-2.png', '../sd/sd3-3.png', '../sd/sd3-4.png'],
+    publicUrl: 'https://github.com/Jiamaa/maa-note',
+    languages: ['TypeScript'],
+    frameworks: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'REST API'],
+    goals: 'Build a robust note-taking and task management application.',
+    achievements: [
+      
+    ]
+  },
+  {
+    id: '7',
+    title: 'C# .NET Backend',
+    category: 'Software Development',
+    year: '2026',
+    description: 'Simple REST API and WebSocket backend application using C# and .NET framework.',
+    imageUrl: '../sd/sd4-1.png',
+    contentImageUrls: ['../sd/sd4-2.png'],
+    publicUrl: 'https://github.com/Jiamaa/csharp-backend',
+    languages: ['C#'],
+    frameworks: ['.NET', 'ASP.NET Core', 'REST API', 'WebSocket'],
+    goals: 'Build a simple REST API and WebSocket backend application using C# and .NET framework.',
+    achievements: [
+      
+    ]
+  },
+
   // {
-  //   id: '6',
+  //   id: '8',
   //   title: 'AI Medical Assistant Chatbot',
   //   category: 'LLM',
   //   year: '2024',
@@ -109,31 +142,28 @@ export const PROJECTS: Project[] = [
 export const RESEARCH: Research[] = [
   {
     id: 'r1',
-    title: 'Breast Cancer Classification Comparison',
-    year: '2022',
-    description: 'Research based on the Breast Cancer Wisconsin (Diagnostic) Dataset comparing Machine Learning and Deep Learning algorithms.',
-    imageUrl: 'https://picsum.photos/seed/cancer/800/600',
-    paperUrl: 'https://example.com/breast-cancer-paper',
+    title: 'Brain Stroke Classification using One Dimensional Convolutional Neural Network',
+    year: '2021 - 2022',
+    description: 'Advances in technology have now developed into various fields, one of which is the health sector. With the support of this technology, it can help the work of health workers in dealing with their patients. Not only acting as a curative and rehabilitative, but technology can also be used as a preventive medium for dangerous diseases; an example is a stroke. According to the World Health Organization (WHO), stroke is the second leading cause of death and the third leading cause of disability. Stroke can occur due to lifestyle factors (such as tobacco and alcohol use) and medical factors (such as a history of heart disease and hypertension). Data on patients who have factors that trigger stroke can be used to detect and predict the potential for the patient to have a stroke or not. The research was conducted using a Deep Learning algorithm, namely Convolutional Neural Network (CNN), to train the data to produce an architecture that can predict the possibility of brain stroke. The dataset used in this study was obtained from the Brain Stroke Detection public domain dataset, which has 11 attributes (including gender, age, hypertension, heart disease, ever married, work type, residence type, average glucose level, BMI, smoking status, and stroke). The architecture produced an excellent accuracy of 98%, an F1-Score of 98%, and a Loss of 0.1180. Besides, this architecture has a good fitting, which shows that the architecture made is robust enough to predict the potential for the occurrence of brain stroke.',
+    imageUrl: 'https://www.stroke.org/-/media/Stroke-Images/About-Stroke/Types-of-Stroke/humanbrainPM656JQ.png?sc_lang=en&hash=CD96FFF230B52D78B2E59C182B5E52DE',
+    paperUrl: 'https://doi.org/10.1109/APWiMob56856.2022.10014207',
     achievements: [
-      'Created and tested Deep Learning models with Deep Neural Network algorithms.',
-      'Achieved 96% accuracy by determining optimal DNN parameters.',
-      'Contributed 70% in writing the scientific article.'
+      'Achieved 98% final accuracy value.',
+      'Presented in 2022 IEEE Asia Pacific Conference on Wireless and Mobile (APWiMob)',
+      'Published in the 2022 IEEE Asia Pacific Conference on Wireless and Mobile (APWiMob) IEEE Xplore.',
     ]
   },
   {
     id: 'r2',
-    title: 'Stroke Classification using 1D-CNN',
-    year: '2021 - 2022',
-    description: 'Classification research using One-Dimensional CNN algorithm based on the Brain Stroke Dataset.',
-    imageUrl: 'https://picsum.photos/seed/stroke/800/600',
-    paperUrl: 'https://example.com/stroke-paper',
+    title: 'Comparison of Machine Learning and Deep Learning Algorithms for Classification of Breast Cancer',
+    year: '2022',
+    description: 'Statistical data from the American Cancer Society which shows that breast cancer ranks first with the highest number of cases of all types of cases of malignant tumors (cancer) worldwide. Through a data mining process that is used to extract information and data analysis, a classification process can be carried out to carry out further analysis of the pattern of a data. The dataset used in this study is the Breast Cancer Wisconsin (Diagnostic) Dataset obtained from UCI Machine Learning. The purpose of this study is to compare five algorithms, namely Logistic Regression, K Neighbors Classifier (KNN), Decision Tree Classifier, Deep Neural Network, Genetic Algorithm. The results showed that deep neural network algorithms and multilayer perceptron-genetic algorithms get 96% accuracy, logistic regression algorithms have 96% accuracy, then KNN with 94%, and decision tree classifier with 92%.',
+    imageUrl: 'https://png.pngtree.com/png-vector/20230831/ourmid/pngtree-breast-cancer-ribbon-vector-png-image_9236207.png',
+    paperUrl: 'https://doi.org/10.17509/coelite.v2i2.59717',
     achievements: [
-      'Performed EDA, Data Cleansing, and Pre-processing.',
-      'Overcame data imbalance using the SMOTE function.',
-      'Achieved 98% final accuracy value.',
-      'Contributed 40% in writing the scientific article.'
+      'Achieved 96% accuracy by determining optimal DNN parameters.',
     ]
-  }
+  },
 ];
 
 export const EDUCATION: Education[] = [

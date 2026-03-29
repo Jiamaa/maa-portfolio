@@ -15,10 +15,10 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-white text-zinc-900 selection:bg-[#EC8F8D] selection:text-[#EC8F8D]">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-emerald-500 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-[#EC8F8D] origin-left z-[60]"
         style={{ scaleX }}
       />
 

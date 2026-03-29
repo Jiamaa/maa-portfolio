@@ -1,13 +1,45 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Calendar, Trophy, BookOpen } from 'lucide-react';
 import { RESEARCH } from '../constants';
 import { Research } from '../types';
 
+const getMostRecentYear = (yearLabel: string): number => {
+  const years = yearLabel.match(/\d{4}/g);
+  if (!years) return Number.NEGATIVE_INFINITY;
+  return Math.max(...years.map((year) => Number.parseInt(year, 10)));
+};
+
 export default function ResearchSection() {
   const [selectedResearch, setSelectedResearch] = useState<Research | null>(null);
+  const sortedResearch = RESEARCH
+    .slice()
+    .sort((a, b) => {
+      const yearDiff = getMostRecentYear(b.year) - getMostRecentYear(a.year);
+      if (yearDiff !== 0) return yearDiff;
+
+      const idA = Number.parseInt(a.id.replace(/\D/g, ''), 10);
+      const idB = Number.parseInt(b.id.replace(/\D/g, ''), 10);
+
+      if (!Number.isNaN(idA) && !Number.isNaN(idB)) {
+        return idB - idA;
+      }
+
+      return b.id.localeCompare(a.id, undefined, { numeric: true, sensitivity: 'base' });
+    });
+
+  useEffect(() => {
+    if (!selectedResearch) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [selectedResearch]);
 
   return (
     <section id="research" className="py-32 px-6 bg-white">
@@ -22,7 +54,7 @@ export default function ResearchSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {RESEARCH.map((res) => (
+          {sortedResearch.map((res) => (
             <motion.div
               key={res.id}
               initial={{ opacity: 1, y: 0 }}
@@ -74,9 +106,9 @@ export default function ResearchSection() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-y-auto"
             >
-              <div className="absolute top-6 right-6 z-10">
+              <div className="sticky top-0 z-10 flex justify-end p-6 bg-white/95 backdrop-blur-sm border-b border-zinc-100">
                 <button
                   onClick={() => setSelectedResearch(null)}
                   className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 transition-colors"
@@ -85,7 +117,7 @@ export default function ResearchSection() {
                 </button>
               </div>
 
-              <div className="p-12">
+              <div className="px-12 pb-12">
                 <div className="flex items-center space-x-4 text-[#EC8F8D] mb-6">
                   <BookOpen size={24} />
                   <span className="text-sm font-bold uppercase tracking-widest">Research Detail</span>
